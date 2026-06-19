@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Monitoring</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; text-align: center; background: #f0f2f5; }
+        .gauges { display: flex; justify-content: center; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Real-Time System Monitor</h1>
+    <div class="gauges">
+        <div id="cpu-gauge"></div>
+        <div id="mem-gauge"></div>
+    </div>
+
+    <script>
+        var layout = { width: 450, height: 350 };
+        
+        Plotly.newPlot('cpu-gauge', [{type: "indicator", mode: "gauge+number", value: 0, title: {text: "CPU %"}, gauge: {axis: {range: [0, 100]}}}], layout);
+        Plotly.newPlot('mem-gauge', [{type: "indicator", mode: "gauge+number", value: 0, title: {text: "MEM %"}, gauge: {axis: {range: [0, 100]}}}], layout);
+
+        function fetchData() {
+            fetch('/get_data')
+                .then(response => response.json())
+                .then(data => {
+                    Plotly.restyle('cpu-gauge', 'value', [data.cpu_percent]);
+                    Plotly.restyle('mem-gauge', 'value', [data.mem_percent]);
+                });
+        }
+
+        setInterval(fetchData, 5000); 
+        fetchData(); 
+    </script>
+</body>
+</html>
