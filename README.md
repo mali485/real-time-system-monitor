@@ -17,11 +17,8 @@
 ## 🚀 Deployment Results
 The dashboard successfully renders live metrics. The CPU usage displays fluctuations based on active processes, while Memory usage reflects the current RAM load.
 
-<br>
+<img width="1918" height="1076" alt="Screenshot 2026-03-18 024157" src="https://github.com/user-attachments/assets/2191f667-b18d-4fc3-b085-db808291af3f" />
 
-<img src="https://raw.githubusercontent.com/mali485/real-time-system-monitor/main/Screenshot%202026-03-18%20024157.png" width="800">
-
-<br>
 
 ---
 *Built with 💻 by Muhammad Ali | Cloud Computing & DevOps Enthusiast*
